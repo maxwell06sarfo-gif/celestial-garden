@@ -41,7 +41,6 @@ const StarField = memo(function StarField() {
 
 // Static forest — no per-frame rendering
 const ForestSilhouette = memo(function ForestSilhouette() {
-  // Pre-compute grass blades — static, never re-renders
   const blades = useMemo(() => Array.from({ length: 50 }, (_, i) => {
     const x = (i * 20) % 1000;
     const h = 16 + ((i * 5) % 26);
@@ -65,7 +64,8 @@ const ForestSilhouette = memo(function ForestSilhouette() {
   );
 });
 
-const flowerPositions = [
+// Desktop: fixed percentage positions (original layout)
+const desktopPositions = [
   { x: "18%", y: "10%" },
   { x: "18%", y: "28%" },
   { x: "18%", y: "46%" },
@@ -90,8 +90,6 @@ export default function Home() {
       }}
     >
       <AudioEngine hasEntered={hasEntered} />
-
-      {/* CSS-only stars — no JS animation */}
       <StarField />
 
       {/* Moon glow */}
@@ -114,10 +112,7 @@ export default function Home() {
         }}
       />
 
-      {/* Static forest silhouette */}
       <ForestSilhouette />
-
-      {/* Floating particles */}
       <FloatingPetals />
 
       {/* Landing Gate */}
@@ -143,27 +138,53 @@ export default function Home() {
         >
           <LightVine isActive={true} />
 
-          {/* Flowers */}
-          {memories.slice(0, 10).map((memory, index) => (
-            <SacredFlower
-              key={memory.id}
-              type={memory.type}
-              color={memory.color}
-              position={flowerPositions[index]}
-              onClick={() => setSelectedMemory(memory)}
-              index={index}
-            />
-          ))}
+          {/* ── DESKTOP layout: fixed positions ── */}
+          <div className="hidden md:block absolute inset-0">
+            {memories.slice(0, 10).map((memory, index) => (
+              <SacredFlower
+                key={memory.id}
+                type={memory.type}
+                color={memory.color}
+                position={desktopPositions[index]}
+                onClick={() => setSelectedMemory(memory)}
+                index={index}
+              />
+            ))}
+          </div>
+
+          {/* ── MOBILE layout: scrollable 2-column grid ── */}
+          <div
+            className="md:hidden absolute inset-0 overflow-y-auto"
+            style={{ paddingBottom: "80px", zIndex: 20 }}
+          >
+            <style>{`
+              .mobile-garden::-webkit-scrollbar { display: none; }
+              .mobile-garden { -ms-overflow-style: none; scrollbar-width: none; }
+            `}</style>
+            <div
+              className="mobile-garden grid grid-cols-2 gap-y-2 gap-x-4 px-6 pt-14 pb-6"
+              style={{ minHeight: "100%" }}
+            >
+              {memories.slice(0, 10).map((memory, index) => (
+                <MobileFlower
+                  key={memory.id}
+                  memory={memory}
+                  index={index}
+                  onClick={() => setSelectedMemory(memory)}
+                />
+              ))}
+            </div>
+          </div>
 
           {/* Garden label */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.5, duration: 1.4 }}
-            className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20"
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30"
           >
             <div
-              className="px-7 py-2.5 rounded-full text-[9px] tracking-[0.5em] uppercase font-medium"
+              className="px-7 py-2.5 rounded-full text-[9px] tracking-[0.5em] uppercase font-medium whitespace-nowrap"
               style={{
                 background: "rgba(5,18,5,0.75)",
                 border: "1px solid rgba(120,200,70,0.25)",
@@ -196,5 +217,72 @@ export default function Home() {
         }}
       />
     </main>
+  );
+}
+
+// Mobile flower card — tap to open memory
+function MobileFlower({ memory, index, onClick }) {
+  function hex2rgb(hex) {
+    const n = parseInt(hex.replace("#", ""), 16);
+    return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+  }
+  function rgba(hex, a) {
+    const { r, g, b } = hex2rgb(hex);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.6, delay: index * 0.08, type: "spring", stiffness: 120, damping: 18 }}
+      whileTap={{ scale: 0.93 }}
+      onClick={onClick}
+      className="flex flex-col items-center cursor-pointer"
+      style={{ willChange: "transform" }}
+    >
+      {/* Flower icon area */}
+      <div
+        className="relative flex items-center justify-center rounded-2xl mb-2"
+        style={{
+          width: "100%",
+          aspectRatio: "1 / 1",
+          background: `radial-gradient(circle at 40% 35%, ${rgba(memory.color, 0.18)} 0%, ${rgba(memory.color, 0.06)} 60%, transparent 100%)`,
+          border: `1px solid ${rgba(memory.color, 0.3)}`,
+          boxShadow: `0 0 18px ${rgba(memory.color, 0.12)}`,
+        }}
+      >
+        {/* Flower emoji / SVG placeholder — lightweight for mobile */}
+        <div style={{ fontSize: 38 }}>
+          {["🌹","🌻","🪷","🌸","🌺","💐","🌼","🏵️","🌷","✿"][index % 10]}
+        </div>
+        {/* Memory number badge */}
+        <div
+          className="absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold"
+          style={{
+            background: rgba(memory.color, 0.85),
+            color: "#000",
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          {memory.id}
+        </div>
+      </div>
+
+      {/* Label */}
+      <div
+        className="text-center text-[9px] tracking-[0.25em] uppercase font-medium leading-tight px-1"
+        style={{
+          color: rgba(memory.color, 0.85),
+          fontFamily: "'Cormorant Garamond', serif",
+          maxWidth: "100%",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}
+      >
+        Memory {memory.id}
+      </div>
+    </motion.div>
   );
 }
