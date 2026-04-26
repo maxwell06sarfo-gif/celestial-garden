@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0d1f0e;
+  --color-foreground: #f5f0e8;
+  --color-garden-sky: #1a3a1a;
+  --color-garden-meadow: #2d5a1b;
+  --color-garden-sun: #fff8e1;
+  --font-sans: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d1f0e;
+  color: #f5f0e8;
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Garden soil texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  mix-blend-mode: overlay;
+}
+
+.glass-card {
+  background: rgba(10, 28, 10, 0.7);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(120, 200, 80, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.glass-card-light {
+  background: rgba(255, 253, 240, 0.92);
+  backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(139, 195, 74, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(80, 160, 40, 0.15);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes flutter {
+  0%, 100% { transform: scaleX(1) rotate(0deg); }
+  50% { transform: scaleX(0.3) rotate(5deg); }
+}
+
+@keyframes sway-left {
+  0%, 100% { transform-origin: bottom center; transform: rotate(-3deg); }
+  50% { transform-origin: bottom center; transform: rotate(3deg); }
+}
+
+@keyframes sway-right {
+  0%, 100% { transform-origin: bottom center; transform: rotate(2deg); }
+  50% { transform-origin: bottom center; transform: rotate(-4deg); }
+}
+
+@keyframes dewdrop {
+  0% { opacity: 0; transform: scale(0) translateY(0); }
+  30% { opacity: 0.8; transform: scale(1) translateY(0); }
+  80% { opacity: 0.6; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.8) translateY(8px); }
+}
+
+@keyframes petal-fall {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.8; }
+  25% { transform: translateY(25vh) rotate(45deg) translateX(30px); opacity: 0.7; }
+  50% { transform: translateY(50vh) rotate(90deg) translateX(-20px); opacity: 0.5; }
+  75% { transform: translateY(75vh) rotate(180deg) translateX(15px); opacity: 0.3; }
+  100% { transform: translateY(110vh) rotate(270deg) translateX(-10px); opacity: 0; }
+}
+
+@keyframes firefly-glow {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes mist-drift {
+  0% { transform: translateX(-10%) scaleX(1); opacity: 0; }
+  20% { opacity: 0.4; }
+  80% { opacity: 0.4; }
+  100% { transform: translateX(10%) scaleX(1.1); opacity: 0; }
+}
+
+@keyframes leaf-rustle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  33% { transform: rotate(-8deg) scale(1.02); }
+  66% { transform: rotate(5deg) scale(0.98); }
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 195, 74, 0.35) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 195, 74, 0.35);
+  border-radius: 10px;
+}
+
+/* Organic flower hover glow */
+.flower-glow {
+  filter: drop-shadow(0 0 12px currentColor);
+  transition: filter 0.4s ease;
+}
+.flower-glow:hover {
+  filter: drop-shadow(0 0 24px currentColor) drop-shadow(0 0 48px currentColor);
+}
