@@ -64,18 +64,9 @@ const ForestSilhouette = memo(function ForestSilhouette() {
   );
 });
 
-// Desktop: fixed percentage positions (original layout)
+// Desktop: centered position for the single big flower
 const desktopPositions = [
-  { x: "18%", y: "10%" },
-  { x: "18%", y: "28%" },
-  { x: "18%", y: "46%" },
-  { x: "18%", y: "64%" },
-  { x: "18%", y: "78%" },
-  { x: "62%", y: "10%" },
-  { x: "62%", y: "28%" },
-  { x: "62%", y: "46%" },
-  { x: "62%", y: "64%" },
-  { x: "62%", y: "78%" },
+  { x: "50%", y: "45%" }, // Centered single flower
 ];
 
 export default function Home() {

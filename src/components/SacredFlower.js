@@ -199,6 +199,11 @@ const SacredFlower = memo(function SacredFlower({ type, color, onClick, position
   const delay = index * 0.15;
   const swayDuration = 3.5 + ((index * 1.3) % 3);
 
+  // Big flower size for single memory
+  const isBigFlower = true; // Single memory = big flower
+  const flowerWidth = isBigFlower ? 140 : 70;
+  const flowerHeight = isBigFlower ? 180 : 90;
+
   const handleClick = useCallback(() => onClick(), [onClick]);
 
   return (
@@ -206,10 +211,10 @@ const SacredFlower = memo(function SacredFlower({ type, color, onClick, position
       initial={{ opacity: 0, scale: 0, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.9, delay, type: "spring", stiffness: 100, damping: 16 }}
-      whileHover={{ scale: 1.2, y: -10, transition: { duration: 0.25, ease: "easeOut" } }}
+      whileHover={{ scale: 1.15, y: -15, transition: { duration: 0.25, ease: "easeOut" } }}
       onClick={handleClick}
       className="absolute cursor-pointer z-30 group"
-      style={{ top: position.y, left: position.x, width: 70, height: 90, willChange: "transform" }}
+      style={{ top: position.y, left: position.x, width: flowerWidth, height: flowerHeight, willChange: "transform", transform: "translate(-50%, -50%)" }}
     >
       <motion.div
         className="w-full h-full"
@@ -217,14 +222,14 @@ const SacredFlower = memo(function SacredFlower({ type, color, onClick, position
         transition={{ duration: swayDuration, repeat: Infinity, ease: "easeInOut" }}
         style={{ transformOrigin: "50% 100%", willChange: "transform" }}
       >
-        {/* Ambient glow — CSS only, no JS */}
+        {/* Ambient glow — bigger for single flower */}
         <div
           className="absolute inset-0 rounded-full pointer-events-none"
           style={{
-            background: `radial-gradient(circle, ${rgba(color, 0.5)} 0%, transparent 70%)`,
-            transform: "scale(1.6)",
-            filter: "blur(6px)",
-            opacity: 0.15,
+            background: `radial-gradient(circle, ${rgba(color, 0.6)} 0%, transparent 70%)`,
+            transform: "scale(2.2)",
+            filter: "blur(12px)",
+            opacity: 0.25,
             transition: "opacity 0.3s ease",
           }}
         />
@@ -234,22 +239,23 @@ const SacredFlower = memo(function SacredFlower({ type, color, onClick, position
           <FlowerSVG color={color} uid={uid} />
         </div>
 
-        {/* Hover label — pure CSS opacity */}
+        {/* Hover label — bigger for single flower */}
         <div
-          className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100"
+          className="absolute -top-14 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100"
           style={{ transition: "opacity 0.2s ease" }}
         >
           <div
-            className="px-3 py-1 rounded-full text-[9px] tracking-[0.35em] uppercase font-medium"
+            className="px-5 py-2 rounded-full text-[11px] tracking-[0.4em] uppercase font-medium"
             style={{
-              background: "rgba(5,20,5,0.88)",
-              border: `1px solid ${rgba(color, 0.5)}`,
+              background: "rgba(5,20,5,0.9)",
+              border: `2px solid ${rgba(color, 0.6)}`,
               color: color,
               backdropFilter: "blur(8px)",
               fontFamily: "'Cormorant Garamond', serif",
+              boxShadow: `0 0 20px ${rgba(color, 0.4)}`,
             }}
           >
-            Memory {index + 1}
+            ✦ Click to Read ✦
           </div>
         </div>
       </motion.div>
