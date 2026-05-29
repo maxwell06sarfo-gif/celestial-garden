@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo, memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import dynamic from "next/dynamic";
 
 import DigitalHug from "@/components/DigitalHug";
 import FloatingPetals from "@/components/StarField";
@@ -9,6 +10,8 @@ import LightVine from "@/components/LightVine";
 import SacredFlower from "@/components/SacredFlower";
 import GlassModal from "@/components/GlassModal";
 import AudioEngine from "@/components/AudioEngine";
+
+const CrystalHeart = dynamic(() => import("@/components/CrystalHeart"), { ssr: false });
 
 import { memories } from "@/utils/memories";
 
@@ -77,10 +80,13 @@ export default function Home() {
     <main
       className="relative h-screen w-full overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #020c03 0%, #071408 12%, #0d2010 28%, #0f2a12 48%, #122e14 68%, #163318 85%, #1a3a1a 100%)",
+        background: hasEntered
+          ? "#000000"
+          : "linear-gradient(180deg, #020c03 0%, #071408 12%, #0d2010 28%, #0f2a12 48%, #122e14 68%, #163318 85%, #1a3a1a 100%)",
       }}
     >
       <AudioEngine hasEntered={hasEntered} />
+      {hasEntered && <CrystalHeart />}
       <StarField />
 
       {/* Moon glow */}
@@ -128,6 +134,30 @@ export default function Home() {
           className="relative h-full w-full"
         >
           <LightVine isActive={true} />
+
+          {/* ── "this is for you" overlay — centered above the heart ── */}
+          <motion.div
+            initial={{ opacity: 0, y: -18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 2.2, ease: "easeOut" }}
+            className="absolute top-[12%] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none"
+          >
+            <motion.p
+              animate={{ opacity: [0.55, 0.9, 0.55] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(0.65rem, 2vw, 0.85rem)",
+                letterSpacing: "0.55em",
+                textTransform: "lowercase",
+                color: "rgba(255,255,255,0.72)",
+                textShadow: "0 0 24px rgba(255,100,180,0.45)",
+                fontWeight: 300,
+              }}
+            >
+              this is for you
+            </motion.p>
+          </motion.div>
 
           {/* ── DESKTOP layout: fixed positions ── */}
           <div className="hidden md:block absolute inset-0">

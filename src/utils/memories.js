@@ -1,29 +1,38 @@
 export const memories = [
   {
     id: 1,
-    title: "🌸 A Heartfelt Letter to Uriel 🌸",
-    message: `Hi Uriel! 💕✨ I just wanted to say a very big THANK YOU! 🙏🥺💖 I've been trying to figure something out about you that I didn't quite understand, but lately I've discovered the source and I've known why! 💡🤗
+    title: "💌 From the Bottom of My Heart",
+    message: `Uriel…
 
-You've truly made such a wonderful impact on my life! 🌟💫 Yes, you might not understand, but all I want to say is that you've really helped me with so many things lately—not only my spiritual life, but my physical and personal life as well! 🙌❤️✝️🏃‍♀️💪
+I need you to read every single word of this. Not because I want your forgiveness — though I hope for it — but because you deserve to know exactly what lives in my heart.
 
-I don't want you to overthink, so I will share one of the beautiful impacts! 😅💭💖
+I made you feel something you should never have had to feel. And that thought alone — that I, of all people, caused you pain — breaks something in me that I don't quite know how to fix.
 
-One thing about coding is that it is really stressful, hard, and usually causes headaches and frustration when there are little bugs and errors! 😫💻🐛🤯 But anytime this comes up, your talking always cheers me up! 🗣️💕✨ My mood suddenly changes at that very moment! 🌈😊 It's like peace always overwhelms me when we text or talk! 📱💬☮️✨ I get some peace that I never thought I could get right then... and so many other things I can't even type out! 📝💝🥰
+I wasn't trying to hurt you. I promise you that with everything I am. What I said, what I did — it came from a place of raw, unfiltered emotion. I was feeling something deeply, and I let it spill out in the worst possible way, without thinking about how it would land in your heart.
 
-I've always prayed for peace of mind, and it seems I am now seeing that! 🙏🕊️💖✨
+That was wrong. I was wrong.
 
-I don't know how long this friendship will last, or how long this peace I'm getting now will last—maybe after WASSCE... 🎓⏳🤷‍♀️ But I'm enjoying every little moment of peace from it while it lasts! 🌸💕🌷
+You are one of the most precious people in my world, Uriel. You don't just bring light — you ARE light. The kind that sneaks through when everything else feels dark. The kind that stays even when you've walked away. I didn't realise how much I depended on that light until I thought about what it would mean to lose it.
 
-We don't know what the future holds, but I always know in the end, it will be good! 🌅✨🙌💖
+Every time we talk, there's this stillness that comes over me. Like the world slows down. Like I can breathe again. You give me peace I don't even know how to explain to people who've never felt it. And the idea that I shattered any part of that peace for you… I can't sit with that without saying something.
 
-I haven't known you for long, but I'm glad I know you at least! 🤝💕🌟
+So here it is, plainly, honestly, with everything I have —
 
-Thank you once again, Praises! 🙏🥰💐
+I am so deeply, genuinely sorry.
+Not because I have to be. But because you matter.
+Because your feelings matter.
+Because YOU matter.
 
-All I wanted to say is: Thank You! 🙏❤️✨🌸💕`,
+More than I probably ever say out loud.
+
+I didn't mean to make you sad. I never could.
+
+— Always yours 💛`,
     image: "/images/memory1.svg",
+    video: "/video/apology.mp4",
     type: "lotus",
     color: "#ff69b4",
-    layout: "portrait"
+    layout: "portrait",
+    isApology: true
   }
 ];

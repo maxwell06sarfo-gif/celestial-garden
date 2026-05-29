@@ -202,7 +202,7 @@ export default function LandingGate({ onEnter }) {
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           letterSpacing: "0.65em", textTransform: "uppercase", marginBottom: "10px", fontWeight: 500,
         }}>
-          A Garden of Memories
+          Something made just for you
         </p>
 
         <h2 style={{
@@ -219,7 +219,7 @@ export default function LandingGate({ onEnter }) {
           textTransform: "uppercase", color: "rgba(160,220,100,0.5)",
           fontFamily: "'Cormorant Garamond', Georgia, serif",
         }}>
-          Ten memories · One beautiful soul
+          From the bottom of my heart · Always yours
         </p>
 
         <motion.button
