@@ -37,7 +37,7 @@ Recognizing Generational Value 🌍
 Whenever I think about Frederick, I always marvel at his story. This is a guy who literally shook hands with Elon Musk—the richest man in the world—yet his financial status never changed. He wasn't able to benefit from that kind of monumental, generational wealth opportunity.
 If I were the one to meet Elon Musk, Praises, I would do everything humanly possible to secure generational wealth for my family and my descendants. 🚀
 The exact same logic applies to you. Seeing how Frederick let you slip away, and knowing just how rare, priceless, and incredibly special you are, I will never let this God-given opportunity just pass me by. Never. ⚡
-Praises all am asking is that will u act as laban and let me be in the long run like how he did jacob or i should just accept the fact that there is no possibility, Thank you for having time to read my noble meassge, respond to me in my DM,`
+Praises all am asking is that will u act as laban and let me be in the long run like how he did jacob or i should just accept the fact that there is no possibility, Thank you for having time to read my noble meassge, respond to me in my DM,`,
     image: "/images/memory1.svg",
     video: "/video/apology.mp4",
     type: "lotus",
