@@ -1,4 +1,3 @@
-```javascript
 export const memories = [
   {
     id: 1,
@@ -47,5 +46,3 @@ Praises all am asking is that will u act as laban and let me be in the long run 
     isApology: false
   }
 ];
-
-```
