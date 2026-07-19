@@ -1,18 +1,18 @@
 export const memories = [
   {
     id: 1,
-    title: "The Ultimate Deep Devotion Message 🌹✨",
-    message: `Hey Gyamfua,
+    title: "My Love, My Only One 🌹✨",
+    message: `My Ursula, my princess, my world, my one and only,
 
-I’ve been sitting here thinking about us and everything we’ve shared so far, and I felt this strong urge to just put my thoughts into words for you. I know we are still in the process of getting to know each other and taking things one step at a time, but I want to be completely transparent about how much you mean to me already. Meeting you and having you in my life has been such a beautiful gift, and every single day I get to talk to you or learn something new about you is a day I genuinely look forward to.
+I need you to hear this from the deepest part of me: I am so sorry. I let my own impatience get the better of me when your replies came late, and I let frustration speak before I stopped to ask what was really going on with you. I didn't know you were carrying so much, quietly, while I was busy being upset over something as small as a delayed message. I'm sorry for adding even one more ounce of weight to what you were already holding. You didn't deserve that, and I grieve knowing I wasn't the soft place to land that you needed in that moment.
 
-From the very beginning, there’s been this incredible sense of calm whenever I think about you. In a world that is always so loud and chaotic, you have become this beautiful source of peace for me. Because of that, my biggest goal is to return that exact same feeling to you. I want to be your safe haven, Gyamfua. I want you to look at me and know, without a shadow of a doubt, that you have someone in your corner who genuinely cares about your heart, your mind, your day-to-day happiness, and your ultimate peace of mind.
+I want you to know, without any doubt, that I love you. Not the easy kind of love that only shows up when things are convenient, but the kind that stays through silence, through hard days, through the moments you don't have the strength to explain yourself. You are my princess, my world, my one and only, and nothing about that changes when you're struggling. If anything, that's exactly when I want to be closest to you.
 
-I want you to feel deeply loved, deeply protected, and immensely valued every single time we speak. Whenever life gets overwhelming, or the weight of everything feels like too much to carry, I want you to remember that you don’t have to carry it alone. Even though we aren't rushing into anything, I am choosing to be a constant, reliable anchor for you. You will never have to guess where you stand with me, and you'll never have to wonder if I'm going to step away when things get heavy. I am here for it all—to listen to your quietest thoughts, to celebrate your biggest wins, or just to sit in silence with you when the world gets too loud.
+From now on, let me be your safe place. Let me be the joy in your day when everything else feels heavy. I want to be there for your tears and your laughter, your silence and your words, without judgment and without pressure. When you're going through something, I don't ever want you to feel like you have to stress about how to tell me, or worry about disappointing me. My arms, my patience, and my heart are open, always.
 
-You deserve a love and a care that feels like a breath of fresh air, not a burden. I want to earn that place in your life, proving to you through consistency and affection that you can lean on me completely. You are such a rare, incredibly special soul, Gyamfua, and I just want to make sure that today, of all days, you feel completely wrapped in warmth, care, and genuine affection.
+I promise you my comfort, my respect, my peace, my loyalty, and my unwavering support. I promise to give you the assurance that no matter how heavy life gets, you have someone standing firmly beside you who isn't going anywhere. You are not alone anymore, Ursula. You have me, fully, gently, and forever.
 
-There’s absolutely no pressure to send a massive reply to this. I just really wanted to pour this out to you because you deserve to know exactly how much light you bring into my world, and how dedicated I am to protecting your peace. I hope this brings a smile to your beautiful face today. 🤍`,
+I love you more than words can hold, my princess. Please forgive me, and please let me love you the way you truly deserve — with patience, tenderness, and a heart that will always choose you. 🤍`,
     image: "/images/memory1.svg",
     video: "/video/apology.mp4",
     type: "lotus",
